@@ -1,5 +1,6 @@
 from flask import Flask, request
 import json
+import pickle
 
 app = Flask(__name__)
 
@@ -9,8 +10,9 @@ def index():
 
 @app.route('/', methods=['POST'])
 def hook():
-	payload = json.loads(request.form[0][1])
-	print(payload)
+	f = open('payload.pickle')
+	pickle(f,request.form)
+	f.close()
 	return '{"status":"success"}'
 
 if __name__ == "__main__":
