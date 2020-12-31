@@ -9,8 +9,8 @@ def index():
 
 @app.route('/', methods=['POST'])
 def hook():
-	print(request.form)
 	payload = json.loads(request.form[0][1])
+	print(payload)
 	return '{"status":"success"}'
 
 if __name__ == "__main__":
