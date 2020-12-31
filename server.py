@@ -10,9 +10,11 @@ def index():
 
 @app.route('/', methods=['POST'])
 def hook():
-	f = open('payload.pickle','bw')
-	pickle.dump(request.form, f)
-	f.close()
+#	f = open('payload.pickle','bw')
+#	pickle.dump(request.form, f)
+#	f.close()
+	payload = json.loads(request.form['payload'])
+	print(payload['repository']['name'])
 	return '{"status":"success"}'
 
 if __name__ == "__main__":
