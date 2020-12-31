@@ -1,4 +1,5 @@
 from flask import Flask, request
+import json
 
 app = Flask(__name__)
 
@@ -9,6 +10,7 @@ def index():
 @app.route('/', methods=['POST'])
 def hook():
 	print(request.form)
+	payload = json.loads(request.form[0][1])
 	return '{"status":"success"}'
 
 if __name__ == "__main__":
