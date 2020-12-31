@@ -8,7 +8,7 @@ def index():
 
 @app.route('/', methods=['POST'])
 def hook():
-	print(request.data)
+	print(request.form)
 	return '{"status":"success"}'
 
 if __name__ == "__main__":
