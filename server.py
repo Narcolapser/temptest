@@ -10,7 +10,7 @@ def index():
 
 @app.route('/', methods=['POST'])
 def hook():
-	f = open('payload.pickle','w')
+	f = open('payload.pickle','bw')
 	pickle.dump(request.form, f)
 	f.close()
 	return '{"status":"success"}'
